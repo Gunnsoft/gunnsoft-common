@@ -4,6 +4,24 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <Title>Gunnsoft.Common</Title>
+    <AssemblyName>Gunnsoft.Common</AssemblyName>
+    <PackageId>Gunnsoft.Common</PackageId>
+    <Authors>Andrew Gunn</Authors>
+    <Company>Gunnsoft</Company>
+    <AssemblyTitle>Gunnsoft.Common</AssemblyTitle>
+    <Description>
+      Gunnsoft Common
+    </Description>
+    <Copyright>Copyright © Gunnsoft 2018</Copyright>
+    <PackageTags>Gunnsoft</PackageTags>
+    <PackageProjectUrl>https://github.com/Gunnsoft/gunnsoft-common</PackageProjectUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/Gunnsoft/gunnsoft-common</RepositoryUrl>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Autofac" Version="4.6.2" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="2.0.1" />
