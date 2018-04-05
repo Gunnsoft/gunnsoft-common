@@ -75,16 +75,17 @@ Task("Pack")
     {
         CreateDirectory(artifactsDirectory);
 
-        var artifactFilePath = $@"{artifactsDirectory}\gunnsoft-common.nupkg";
+        CopyFile($@".\src\Gunnsoft.Common\bin\{configuration}\Gunnsoft.Common.{version}.nupkg", $@"{artifactsDirectory}\gunnsoft-common.nupkg"); 
         
-        CopyFile($@".\src\Gunnsoft.Common\bin\{configuration}\Gunnsoft.Common.{version}.nupkg", artifactFilePath); 
-        
-        if (AppVeyor.IsRunningOnAppVeyor)
-        {
-            AppVeyor.UploadArtifact(artifactFilePath, new AppVeyorUploadArtifactsSettings
+        foreach (var filePath in GetFiles($@"{artifactsDirectory}\*.*")) 
+        { 
+            if (AppVeyor.IsRunningOnAppVeyor)
             {
-                DeploymentName = "gunnsoft-common"
-            });
+                AppVeyor.UploadArtifact(filePath, new AppVeyorUploadArtifactsSettings
+                {
+                    DeploymentName = filePath.GetFilename().ToString()
+                });
+            }
         }
     });
 
