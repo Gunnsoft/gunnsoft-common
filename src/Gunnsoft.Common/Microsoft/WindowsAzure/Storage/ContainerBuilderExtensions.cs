@@ -1,7 +1,6 @@
 ﻿using Autofac;
-using Microsoft.WindowsAzure.Storage;
 
-namespace Gunnsoft.Common.Microsoft.WindowsAzure.Storage
+namespace Microsoft.WindowsAzure.Storage
 {
     public static class ContainerBuilderExtensions
     {
