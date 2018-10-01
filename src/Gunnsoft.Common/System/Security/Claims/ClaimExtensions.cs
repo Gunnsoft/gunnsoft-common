@@ -4,7 +4,12 @@ namespace System.Security.Claims
 {
     public static class ClaimExtensions
     {
-        public static void AddIfValueNotNull(this List<Claim> extended, string type, string value)
+        public static void AddIfValueNotNull
+        (
+            this List<Claim> extended,
+            string type,
+            string value
+        )
         {
             if (type == null)
             {

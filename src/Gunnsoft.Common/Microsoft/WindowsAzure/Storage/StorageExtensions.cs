@@ -2,9 +2,13 @@
 
 namespace Microsoft.WindowsAzure.Storage
 {
-    public static class ContainerBuilderExtensions
+    public static class StorageExtensions
     {
-        public static ContainerBuilder AddStorageAccount(this ContainerBuilder extended, string connectionString)
+        public static ContainerBuilder AddStorageAccount
+        (
+            this ContainerBuilder extended,
+            string connectionString
+        )
         {
             var storageAccount = CloudStorageAccount.Parse(connectionString);
 

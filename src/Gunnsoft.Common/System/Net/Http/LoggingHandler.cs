@@ -8,14 +8,24 @@ namespace System.Net.Http
     {
         private readonly ILogger<LoggingHandler> _logger;
 
-        public LoggingHandler(HttpMessageHandler innerHandler, ILogger<LoggingHandler> logger)
-            : base(innerHandler)
+        public LoggingHandler
+        (
+            HttpMessageHandler innerHandler,
+            ILogger<LoggingHandler> logger
+        )
+            : base
+            (
+                innerHandler
+            )
         {
             _logger = logger;
         }
 
-        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
-            CancellationToken cancellationToken)
+        protected override async Task<HttpResponseMessage> SendAsync
+        (
+            HttpRequestMessage request,
+            CancellationToken cancellationToken
+        )
         {
             if (request.Content == null)
             {

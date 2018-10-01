@@ -5,7 +5,11 @@ namespace System.Security.Claims
 {
     public static class ClaimIdentityExtensions
     {
-        public static void AddOrReplaceClaim(this ClaimsIdentity extended, Claim claim)
+        public static void AddOrReplaceClaim
+        (
+            this ClaimsIdentity extended,
+            Claim claim
+        )
         {
             if (extended == null)
             {
@@ -27,7 +31,11 @@ namespace System.Security.Claims
             extended.AddClaim(claim);
         }
 
-        public static void AddOrReplaceClaims(this ClaimsIdentity extended, IEnumerable<Claim> claims)
+        public static void AddOrReplaceClaims
+        (
+            this ClaimsIdentity extended,
+            IEnumerable<Claim> claims
+        )
         {
             foreach (var claim in claims)
             {

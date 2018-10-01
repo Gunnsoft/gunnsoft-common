@@ -8,13 +8,20 @@ namespace Gunnsoft.Common.Caching.Memory
     {
         private readonly IMemoryCache _memoryCache;
 
-        public MemoryCache(IMemoryCache memoryCache)
+        public MemoryCache
+        (
+            IMemoryCache memoryCache
+        )
         {
             _memoryCache = memoryCache;
         }
 
-        public TValue GetOrSet<TValue>(object key, Func<TValue> factory,
-            CacheSettings cacheOptions = null)
+        public TValue GetOrSet<TValue>
+        (
+            object key,
+            Func<TValue> factory,
+            CacheSettings cacheOptions = null
+        )
         {
             return _memoryCache.GetOrCreate(key, ce =>
             {
@@ -32,8 +39,12 @@ namespace Gunnsoft.Common.Caching.Memory
             });
         }
 
-        public async Task<TValue> GetOrSetAsync<TValue>(object key, Func<Task<TValue>> factory,
-            CacheSettings cacheOptions = null)
+        public async Task<TValue> GetOrSetAsync<TValue>
+        (
+            object key,
+            Func<Task<TValue>> factory,
+            CacheSettings cacheOptions = null
+        )
         {
             return await _memoryCache.GetOrCreateAsync(key, ce =>
             {
@@ -51,7 +62,10 @@ namespace Gunnsoft.Common.Caching.Memory
             });
         }
 
-        public void Remove(object key)
+        public void Remove
+        (
+            object key
+        )
         {
             _memoryCache.Remove(key);
         }
