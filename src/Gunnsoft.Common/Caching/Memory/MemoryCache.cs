@@ -18,12 +18,12 @@ namespace Gunnsoft.Common.Caching.Memory
 
         public TValue GetOrSet<TValue>
         (
-            object key,
+            object k,
             Func<TValue> factory,
             CacheSettings cacheOptions = null
         )
         {
-            return _memoryCache.GetOrCreate(key, ce =>
+            return _memoryCache.GetOrCreate(k, f =>
             {
                 cacheOptions = cacheOptions ?? CacheSettings.Default;
 
@@ -32,8 +32,8 @@ namespace Gunnsoft.Common.Caching.Memory
                     return factory();
                 }
 
-                ce.AbsoluteExpirationRelativeToNow = cacheOptions.AbsoluteExpirationRelativeToNow;
-                ce.SlidingExpiration = cacheOptions.SlidingExpiration;
+                f.AbsoluteExpirationRelativeToNow = cacheOptions.AbsoluteExpirationRelativeToNow;
+                f.SlidingExpiration = cacheOptions.SlidingExpiration;
 
                 return factory();
             });
@@ -41,12 +41,12 @@ namespace Gunnsoft.Common.Caching.Memory
 
         public async Task<TValue> GetOrSetAsync<TValue>
         (
-            object key,
+            object k,
             Func<Task<TValue>> factory,
             CacheSettings cacheOptions = null
         )
         {
-            return await _memoryCache.GetOrCreateAsync(key, ce =>
+            return await _memoryCache.GetOrCreateAsync(k, f =>
             {
                 cacheOptions = cacheOptions ?? CacheSettings.Default;
 
@@ -55,8 +55,8 @@ namespace Gunnsoft.Common.Caching.Memory
                     return factory();
                 }
 
-                ce.AbsoluteExpirationRelativeToNow = cacheOptions.AbsoluteExpirationRelativeToNow;
-                ce.SlidingExpiration = cacheOptions.SlidingExpiration;
+                f.AbsoluteExpirationRelativeToNow = cacheOptions.AbsoluteExpirationRelativeToNow;
+                f.SlidingExpiration = cacheOptions.SlidingExpiration;
 
                 return factory();
             });

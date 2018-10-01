@@ -12,8 +12,8 @@ namespace Gunnsoft.Common.Caching
             };
         }
 
-        public static CacheSettings Default { get; set; }
         public TimeSpan AbsoluteExpirationRelativeToNow { get; set; }
+        public static CacheSettings Default { get; set; }
         public TimeSpan? SlidingExpiration { get; set; }
     }
 }
